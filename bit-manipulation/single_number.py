@@ -42,7 +42,7 @@ def singleNumber(self, nums: List[int]) -> List[int]:
             xor = xor ^ nums[i]
         # xor = num1 ^ num2, need to separate both num1 and num2
         xor1, xor2 = 0, 0
-        rightmost_set_bit = xor & (-xor)
+        rightmost_set_bit = xor & (-xor) # extracts the right most set bit
         for i in range(len(nums)):
             if (nums[i] & rightmost_set_bit):
                 xor1 = xor1 ^ nums[i]
