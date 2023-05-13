@@ -57,3 +57,14 @@
  N = 			110010,	i = 2
     mask = 	000100
     Ans=	(OR) 110110, 	2nd bit got set
+ 3. <samp>clear the ith bit (make it zero)</samp>
+	 
+
+    N = N and ~( 1 << i )
+    N = 110010
+    ~mask = 101111
+    (and) 100010
+
+ 4. <samp>Remove the last set bit</samp>
+ 
+     ans = N & N -1
