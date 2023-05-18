@@ -17,6 +17,23 @@ def preorder_traversal(node: TreeNode):
   preorder_traversal(node.left)
   preorder_traversal(node.right)
 
+# ITERATIVE pre-order traversal
+def iterative_preorder_traversal(node: TreeNode):
+  preorder = []
+  stack = []
+
+  stack.append(node)
+  while(len(stack) != 0):
+    root = stack.pop()
+    preorder.append(root.data)
+    if(root.right != None):
+      stack.append(root.right)
+    
+    if root.left != None:
+      stack.append(root.left)
+    
+  print(" iterative pre-order -> ", *preorder)
+  
 def inorder_traversal(node: TreeNode):
   if node ==  None:
     return
@@ -24,6 +41,23 @@ def inorder_traversal(node: TreeNode):
   inorder_traversal(node.left)
   print(node.data, end = ' ')
   inorder_traversal(node.right)
+  
+# ITERATIVE in-order traversal
+def iterative_inorder_traversal(root: TreeNode):
+  inorder = []
+  stack = []
+  node = root
+  while(True):
+    if node is not None:
+      stack.append(node)
+      node = node.left
+    else:
+      if len(stack) == 0:
+        break
+      node = stack.pop()
+      inorder.append(node.data)
+      node = node.right
+  print(" iterative in-order -> ", *inorder)
 
 def postorder_traversal(node: TreeNode):
   if node ==  None:
@@ -72,3 +106,9 @@ postorder_traversal(treeNode)
 print()
 print("breadth_first_search")
 breadth_first_search(treeNode, 0)
+
+print()
+iterative_preorder_traversal(treeNode)
+
+print()
+iterative_inorder_traversal(treeNode)
