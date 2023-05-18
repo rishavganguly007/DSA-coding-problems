@@ -97,9 +97,23 @@ class LinkedList:
     for i in range(1, index):
       node = node.next
     return node
-    
+ 
+# DELETE Linked-List by a given value
+  def delete_LL_by_value(self, value):
+    if self.head.val ==  value:
+      self.head = self.head.next
 
+    curr: Node = self.head
+    after: Node = self.head.next  
 
+    while(after != None):
+      if after.val ==  value:
+        curr.next = curr.next.next
+        break
+      curr = after
+      after = after.next
+    self.display()
+  
   def display(self):
     temp : Node = self.head
     while (temp != None):
