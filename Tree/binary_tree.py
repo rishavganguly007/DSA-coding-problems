@@ -67,6 +67,25 @@ def postorder_traversal(node: TreeNode):
   postorder_traversal(node.right)
   print(node.data, end = ' ')
 
+  # resource -> https://www.youtube.com/watch?v=QhszUQhGGlA&pp=ygUcbmVldGNvZGUgcG9zdG9yZGVyIGl0ZXJhdGl2ZQ%3D%3D
+def iterative_postorder_traversal(root: TreeNode):
+  stack = [root]
+  visit = [False]
+  res = []
+
+  while stack:
+    cur, v = stack.pop(), visit.pop()
+    if cur:
+      if v:
+        res.append(cur.data)
+      else:
+        stack.append(cur)
+        visit.append(True)
+        stack.append(cur.right)
+        visit.append(False)
+        stack.append(cur.left)
+  print(" iterative post-order -> ", *res)  
+
 ## a verry bad approach
 def breadth_first_search(node: TreeNode, level):
   if node is None:
