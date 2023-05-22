@@ -68,3 +68,12 @@
  4. <samp>Remove the last set bit</samp>
  
      ans = N & N -1
+     
+ 5. <samp>Check if the number is power of 2 </samp>
+		  
+
+>       if (N and N -1 == 0)
+>      		    return true 	
+>         else  		
+>     		    false
+
