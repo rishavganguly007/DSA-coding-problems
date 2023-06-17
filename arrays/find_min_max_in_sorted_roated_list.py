@@ -29,5 +29,26 @@ def findMax(nums) -> int:
                 ans = max(ans, nums[right])
                 right =  mid - 1
         return ans
+
+def findRotation(nums) -> int:
+        left, right = 0, len(nums) - 1
+        mid = 0
+        ans = 10 ** 9
+        ans_index = 0
+        while left <= right:
+            mid = (left + right) // 2
+            # left is sorted, then pick the min element and eliminate that half
+            if nums[left] <= nums[mid]:
+                ans = min(ans, nums[left])
+                if nums[left] <= ans:
+                    ans_index = left
+                
+                left = mid + 1
+            else: 
+                ans = min(ans, nums[mid])
+                if nums[mid] <= ans:
+                  ans_index = mid
+                right =  mid - 1
+        return ans_index
 arr = [4,5,6,7,0,1,2]
-print(f"max: {findMax(arr)}, min: {findMin(arr)}")
+print(f"max: {findMax(arr)}, min: {findMin(arr)}, Rotation: {findRotation(arr)} times")
