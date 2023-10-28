@@ -3,6 +3,19 @@
 
 from queue import Queue
 class Solution:
+
+    def dfs(start, col):
+            color[start] = col
+
+            for i in graph[start]:
+                if color[i] == -1:
+                    if dfs(i, 1 - col) == False:
+                        return False
+
+                elif color[i] == col:
+                    return False
+            return False
+        
     def bfs(self, start, graph, color):
         q = Queue()
         q.put(start)
