@@ -7,6 +7,10 @@ Algo:
 given Adj: 3: {0}, 1: {0}, 2: {0}
 
 inDegree graph -> [3, 0, 0, 0] // tracks the incoming edges, 0 has 3 incoming edges
+since,, 1, 2, 3 has no incoming edeges it can be placed at starting, as there is no one before in the linear ordering (topo-sort follows linear ordering ie, for u edge v, u should come first before v)
+
+stp-1 insert all nodes to 1 with incoming nodes 0, q: {1, 2, 3}
+stp-2 take them out of the queue
 q -> 1,2 3
 1st - node = 1
       q -> 2, 3
