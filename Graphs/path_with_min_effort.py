@@ -1,3 +1,6 @@
+ # code : https://leetcode.com/problems/path-with-minimum-effort/submissions/1147135013/
+# resource : https://www.youtube.com/watch?v=0ytpZyiZFhA
+
 from queue import PriorityQueue
 class Solution:
     def minimumEffortPath(self, heights: List[List[int]]) -> int:
