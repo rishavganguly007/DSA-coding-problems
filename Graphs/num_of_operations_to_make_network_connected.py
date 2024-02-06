@@ -49,18 +49,16 @@ class Solution:
     def makeConnected(self, n: int, connections: List[List[int]]) -> int:
         ds = DisjointSet(n)
         extraEdge = 0
-        for i in range(n):
-            for u, v in connections:
-                if ds.find_upar(u) == ds.find_upar(v):
-                    extraEdge += 1
-                ds.union_by_size(u, v)
+        for u, v in connections:
+            if ds.find_upar(u) == ds.find_upar(v):
+                extraEdge += 1
+            ds.union_by_size(u, v)
         
         numOfComponents = 0
         for i in range(n):
             if i == ds.parent[i]:
                 numOfComponents += 1
-        if numOfComponents == 1:
-            return -1
+        
         return numOfComponents-1 if extraEdge >= (numOfComponents - 1) else -1
         
 sl = Solution()
